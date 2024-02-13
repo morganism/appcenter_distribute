@@ -1,0 +1,30 @@
+
+1. upload release
+
+curl -X POST "https://api.appcenter.ms/v0.1/apps/$OWNER_NAME/$APP_NAME/uploads/releases" -H  "accept: application/json" -H  "X-API-Token: $API_TOKEN" -H  "Content-Type: application/json" -H "Content-Length: 0"
+
+Target URL:
+* METHOD      =  POST
+* SERVICE     =  api
+  DOMAIN      =  https://${SERVICE}.appcenter.ms
+  BASE        =  ${DOMAIN}/v0.1/apps
+* ENDPOINT    =  uploads/release
+  TARGET_URL  =  ${BASE}/${OWNER_NAME}/${APP_NAME}/${ENDPOINT}
+
+Headers:
+  "accept: application/json"
+* "X-API-Token: ${API_TOKEN}"
+  "Content-Type: application/json"
+  "Content-Length: 0"
+
+
+Response:
+ {
+     "error":false,
+     "id":"{PACKAGE_ASSET_ID}",
+     "chunk_size":4194304,
+     "resume_restart":false,
+     "chunk_list":[1,2,3,4,5],
+     "blob_partitions":1,
+     "status_code":"Success"
+ }
